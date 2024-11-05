@@ -34,15 +34,16 @@ export default function EditPostPage({ params }: EditPostPageProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    updatePost({ ...post, title, content });
-    router.push(`/posts/${post.slug}`);
+    const updatedSlug = title.toLowerCase().replace(/\s+/g, '-');
+    updatePost({ ...post, title, content, slug: updatedSlug });
+    router.push(`/posts/${updatedSlug}`);
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-6">Edit Post</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+    <div className="max-w-3xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-6 text-gray-800">Edit Post</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
           <label htmlFor="title" className="block text-lg font-medium mb-2">
             Title
           </label>
@@ -51,11 +52,12 @@ export default function EditPostPage({ params }: EditPostPageProps) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter post title"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label htmlFor="content" className="block text-lg font-medium mb-2">
             Content
           </label>
@@ -63,17 +65,20 @@ export default function EditPostPage({ params }: EditPostPageProps) {
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full p-2 border rounded h-40"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-60"
+            placeholder="Update your post content here..."
             required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors duration-200"
-        >
-          Save Changes
-        </button>
+        <div>
+          <button
+            type="submit"
+            className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors duration-200"
+          >
+            Save Changes
+          </button>
+        </div>
       </form>
-    </main>
+    </div>
   );
 }

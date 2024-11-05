@@ -24,10 +24,10 @@ export default function NewPostPage() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-6">Create New Post</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+    <div className="max-w-3xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-6 text-gray-800">Create New Post</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
           <label htmlFor="title" className="block text-lg font-medium mb-2">
             Title
           </label>
@@ -36,11 +36,12 @@ export default function NewPostPage() {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter post title"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label htmlFor="content" className="block text-lg font-medium mb-2">
             Content
           </label>
@@ -48,17 +49,20 @@ export default function NewPostPage() {
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full p-2 border rounded h-40"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-60"
+            placeholder="Write your post content here..."
             required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-200"
-        >
-          Create Post
-        </button>
+        <div>
+          <button
+            type="submit"
+            className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200"
+          >
+            Publish Post
+          </button>
+        </div>
       </form>
-    </main>
+    </div>
   );
 }
