@@ -30,4 +30,4 @@ export default function PostsPage() {
       </ul>
     </div>
   );
-} 
+}
