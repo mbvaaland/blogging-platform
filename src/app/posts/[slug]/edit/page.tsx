@@ -40,7 +40,7 @@ export default function EditPostPage({ params }: EditPostPageProps) {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-6 sm:p-8 md:p-10">
       <h1 className="text-4xl font-bold mb-6 text-gray-800">Edit Post</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>

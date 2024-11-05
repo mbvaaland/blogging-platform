@@ -14,13 +14,13 @@ const Header: React.FC = () => {
           </div>
           <nav className="hidden md:flex space-x-4">
             <Link href="/" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
-              Home
+                Home
             </Link>
             <Link href="/posts" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
-              Posts
+                Posts
             </Link>
             <Link href="/posts/new" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
-              New Post
+                New Post
             </Link>
           </nav>
           {/* Mobile Menu Button (Optional) */}
