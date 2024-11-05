@@ -14,24 +14,20 @@ export default function PostsPage() {
   const { posts } = postsContext;
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-6">Blog Posts</h1>
-      <Link href="/posts/new" className="mb-4 inline-block">
-        <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-200">
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-6 text-gray-800">Blog Posts</h1>
+      <Link href="/posts/new" className="mb-6 inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-200">
           Create New Post
-        </button>
       </Link>
-      <ul>
+      <ul className="space-y-4">
         {posts.map((post) => (
-          <li key={post.id} className="mb-4">
-            <Link href={`/posts/${post.slug}`}>
-              <span className="text-2xl text-blue-600 hover:underline cursor-pointer">
-                {post.title}
-              </span>
+          <li key={post.id} className="border-b pb-4">
+            <Link href={`/posts/${post.slug}`} className="text-2xl text-blue-600 hover:underline">{post.title}
             </Link>
+            <p className="text-gray-600 mt-2">{post.content.substring(0, 100)}...</p>
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
-}
+} 
