@@ -13,13 +13,13 @@ const Header: React.FC = () => {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-4">
-            <Link href="/" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/" className="nav-link">
                 Home
             </Link>
-            <Link href="/posts" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/posts" className="nav-link">
                 Posts
             </Link>
-            <Link href="/posts/new" className="hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href="/posts/new" className= "nav-link">
                 New Post
             </Link>
           </nav>

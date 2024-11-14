@@ -1,6 +1,14 @@
-// Define SCSS variables
+// src/app/globals.scss
+
+// Existing Variables
 $primary-color: #1d4ed8; // Blue
-$secondary-color: #9333ea; // Purple
+$secondary-color: #23bdf9; // Purple
+
+// New Variables
+$success-color: #10b981; // Green
+$danger-color: #ef4444; // Red
+$warning-color: #f59e0b; // Yellow
+$info-color: #3b82f6; // Light Blue
 
 // Import Tailwind CSS directives
 @tailwind base;
@@ -24,8 +32,14 @@ $secondary-color: #9333ea; // Purple
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-family: 'Geist Sans', sans-serif;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: $primary-color;
   }
 
@@ -35,4 +49,43 @@ body {
       text-decoration: underline;
     }
   }
+
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+}
+
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  background-color: transparent;
+  color: var(--foreground);
+
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+@mixin button-styles($bg-color, $hover-color, $text-color: white) {
+  @apply px-4 py-2 rounded-lg transition-colors duration-200;
+  background-color: $bg-color;
+  color: $text-color;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+// Usage in button classes
+.btn-primary {
+  @include button-styles($primary-color, darken($primary-color, 10%));
+}
+
+.btn-success {
+  @include button-styles($success-color, darken($success-color, 10%));
+}
+
+.btn-danger {
+  @include button-styles($danger-color, darken($danger-color, 10%));
 }

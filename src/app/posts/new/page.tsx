@@ -57,7 +57,7 @@ export default function NewPostPage() {
         <div>
           <button
             type="submit"
-            className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200"
+            className="btn-success"
           >
             Publish Post
           </button>
