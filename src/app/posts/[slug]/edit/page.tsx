@@ -73,7 +73,7 @@ export default function EditPostPage({ params }: EditPostPageProps) {
         <div>
           <button
             type="submit"
-            className="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors duration-200"
+            className="btn-warning"
           >
             Save Changes
           </button>

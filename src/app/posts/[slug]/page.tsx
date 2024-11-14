@@ -37,15 +37,15 @@ export default function PostPage({ params }: PostPageProps) {
       <h1 className="text-4xl font-bold mb-4 text-gray-800">{post.title}</h1>
       <article className="prose lg:prose-xl mb-6">{post.content}</article>
       <div className="space-x-4">
-        <button
+       <button
           onClick={handleEdit}
-          className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors duration-200"
+          className="btn-warning"
         >
           Edit
         </button>
         <button
           onClick={handleDelete}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors duration-200"
+          className="btn-danger"
         >
           Delete
         </button>

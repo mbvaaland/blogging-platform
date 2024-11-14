@@ -16,7 +16,7 @@ export default function PostsPage() {
   return (
     <div className="max-w-4xl mx-auto p-6 sm:p-8 md:p-10">
       <h1 className="text-4xl font-bold mb-6 text-gray-800">Blog Posts</h1>
-      <Link href="/posts/new" className="mb-6 inline-block px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-200">
+      <Link href="/posts/new" className="btn-success mb-6 inline-block">
           Create New Post
       </Link>
       <ul className="space-y-4">
