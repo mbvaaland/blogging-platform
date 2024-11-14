@@ -24,7 +24,7 @@ export default function PostsPage() {
           <li key={post.id} className="border-b pb-4">
             <Link href={`/posts/${post.slug}`} className="text-2xl text-blue-600 hover:underline">{post.title}
             </Link>
-            <p className="text-gray-600 mt-2">{post.content.substring(0, 100)}...</p>
+            <p className="text-gray-600 mt-2 line-clamp-3">{post.content}</p>
           </li>
         ))}
       </ul>
