@@ -1,10 +1,8 @@
-// src/app/globals.scss
+@use 'sass:color';
 
-// Existing Variables
+// Define SCSS variables
 $primary-color: #1d4ed8; // Blue
-$secondary-color: #23bdf9; // Purple
-
-// New Variables
+$secondary-color: #9333ea; // Purple
 $success-color: #10b981; // Green
 $danger-color: #ef4444; // Red
 $warning-color: #f59e0b; // Yellow
@@ -19,12 +17,14 @@ $info-color: #3b82f6; // Light Blue
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --link-color: $secondary-color;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a202c;
+    --foreground: #e2e8f0;
+    --link-color: $info-color;
   }
 }
 
@@ -34,17 +34,8 @@ body {
   color: var(--foreground);
   font-family: 'Geist Sans', sans-serif;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $primary-color;
-  }
-
   a {
-    color: $secondary-color;
+    color: var(--link-color);
     &:hover {
       text-decoration: underline;
     }
@@ -53,20 +44,9 @@ body {
   button {
     @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
   }
-
 }
 
-.nav-link {
-  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
-  background-color: transparent;
-  color: var(--foreground);
-
-  &:hover {
-    background-color: $primary-color;
-    color: white;
-  }
-}
-
+// Button mixin
 @mixin button-styles($bg-color, $hover-color, $text-color: white) {
   @apply px-4 py-2 rounded-lg transition-colors duration-200;
   background-color: $bg-color;
@@ -77,24 +57,36 @@ body {
   }
 }
 
-// Usage in button classes
+// Button classes using color.adjust()
 .btn-primary {
-  @include button-styles($primary-color, darken($primary-color, 10%));
+  @include button-styles($primary-color, color.adjust($primary-color, $lightness: -10%));
 }
 
 .btn-success {
-  @include button-styles($success-color, darken($success-color, 10%));
+  @include button-styles($success-color, color.adjust($success-color, $lightness: -10%));
 }
 
 .btn-danger {
-  @include button-styles($danger-color, darken($danger-color, 10%));
+  @include button-styles($danger-color, color.adjust($danger-color, $lightness: -10%));
 }
 
 .btn-warning {
-  @include button-styles($warning-color, darken($warning-color, 10%));
+  @include button-styles($warning-color, color.adjust($warning-color, $lightness: -10%));
 }
 
 .btn-info {
-  @include button-styles($info-color, darken($info-color, 10%));
+  @include button-styles($info-color, color.adjust($info-color, $lightness: -10%));
 }
 
+.btn-primary:active,
+.btn-success:active,
+.btn-danger:active,
+.btn-warning:active,
+.btn-info:active {
+  transform: scale(0.98);
+}
+
+input,
+textarea {
+  @apply w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+}

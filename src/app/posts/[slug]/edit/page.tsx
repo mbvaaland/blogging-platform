@@ -40,12 +40,12 @@ export default function EditPostPage({ params }: EditPostPageProps) {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 sm:p-8 md:p-10">
+    <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-4xl font-bold mb-6 text-gray-800">Edit Post</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="title" className="block text-lg font-medium mb-2">
-            Title
+            Title <span className="text-red-500">*</span>
           </label>
           <input
             id="title"
@@ -59,7 +59,7 @@ export default function EditPostPage({ params }: EditPostPageProps) {
         </div>
         <div>
           <label htmlFor="content" className="block text-lg font-medium mb-2">
-            Content
+            Content <span className="text-red-500">*</span>
           </label>
           <textarea
             id="content"
@@ -71,10 +71,7 @@ export default function EditPostPage({ params }: EditPostPageProps) {
           ></textarea>
         </div>
         <div>
-          <button
-            type="submit"
-            className="btn-warning"
-          >
+          <button type="submit" className="btn-warning">
             Save Changes
           </button>
         </div>

@@ -29,7 +29,7 @@ export default function NewPostPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="title" className="block text-lg font-medium mb-2">
-            Title
+            Title <span className="text-red-500">*</span>
           </label>
           <input
             id="title"
@@ -43,7 +43,7 @@ export default function NewPostPage() {
         </div>
         <div>
           <label htmlFor="content" className="block text-lg font-medium mb-2">
-            Content
+            Content <span className="text-red-500">*</span>
           </label>
           <textarea
             id="content"
